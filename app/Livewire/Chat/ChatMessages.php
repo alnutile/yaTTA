@@ -11,7 +11,9 @@ use Livewire\Component;
 class ChatMessages extends Component
 {
     public Chat $chat;
+
     public Collection $messages;
+
     public ?Message $lastMessage = null;
 
     public function mount($chat)

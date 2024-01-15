@@ -113,7 +113,7 @@ class Chat extends Model
         }
 
         $result = OpenAI::completions()->create([
-            'model' => config("llm.openai.model"),
+            'model' => config('llm.openai.model'),
             'prompt' => 'Create a title from the text, keep the language spoken: '.$firstMessage->body,
         ]);
 
