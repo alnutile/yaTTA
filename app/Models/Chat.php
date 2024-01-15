@@ -25,7 +25,8 @@ class Chat extends Model
 
         $message = $this->messages()->create(
             [
-                'body' => $message, 'in_out' => $in,
+                'body' => $message,
+                'in_out' => $in,
                 'created_at' => now(),
                 'updated_at' => now(),
                 'chat_id' => $this->id,
@@ -112,7 +113,7 @@ class Chat extends Model
         }
 
         $result = OpenAI::completions()->create([
-            'model' => 'text-davinci-003',
+            'model' => config("llm.openai.model"),
             'prompt' => 'Create a title from the text, keep the language spoken: '.$firstMessage->body,
         ]);
 
